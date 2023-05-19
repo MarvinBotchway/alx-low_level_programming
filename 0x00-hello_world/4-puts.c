@@ -8,6 +8,7 @@
 int main(void)
 {
 	char textToPrint[56] = "\"Programming is like building a multilingual puzzle";
+
 	puts(textToPrint);
 
 	return (0);
