@@ -14,6 +14,6 @@ void times_table(void);
 int add(int, int);
 void print_to_98(int n);
 void print_times_table(int n);
-void format_mult_print(int mult, int n, int j);
+void format_print(int mult, int n, int j);
 
 #endif
