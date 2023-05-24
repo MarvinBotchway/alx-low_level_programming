@@ -57,6 +57,8 @@ void format_print(int prod, int n, int j)
 		u = (prod % 100) % 10;
 		if ((prod % 100) >= 9)
 			t = ((prod % 100) - u) / 10;
+		else
+			t = 0;
 		h = (prod - (prod % 100)) / 100;
 		_putchar(h + '0');
 		_putchar(t + '0');
