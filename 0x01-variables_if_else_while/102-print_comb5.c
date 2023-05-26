@@ -14,24 +14,23 @@ int main(void)
 		{
 			for (n10 = 48; n10 <= 57; n10++)
 			{
-				if (n10 == 48)
-					n0 = 49;
-				else
-					n0 = 48;
-				for (; n0 <= 57; n0++)
+				for (n0 = 48; n0 <= 57; n0++)
 				{
-					if (n10 < n1000 && n0 < n100)
-						break;
-					putchar(n1000);
-					putchar(n100);
-					putchar(' ');
-					putchar(n10);
-					putchar(n0);
+					if (n1000 == 48 && n100 == 48 && n10 == 48 && n0 == 48)
+						n0++;
+					if (n0 > n100 && n10 >= n1000)
+					{
+						putchar(n1000);
+						putchar(n100);
+						putchar(' ');
+						putchar(n10);
+						putchar(n0);
 
-					if (n1000 == 57 && n100 == 56)
-						break;
-					putchar(',');
-					putchar(' ');
+						if (n1000 == 57 && n100 == 56 && n10 == 57 && n0 == 57)
+							break;
+						putchar(',');
+						putchar(' ');
+					}
 				}
 			}
 		}
