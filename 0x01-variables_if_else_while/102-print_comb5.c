@@ -20,17 +20,20 @@ int main(void)
 					n0 = 48;
 				for (; n0 <= 57; n0++)
 				{
-					if (n10 >= n1000 && n0 > n100)
-					{
-						putchar(n1000);
-						putchar(n100);
-						putchar(' ');
-						putchar(n10);
-						putchar(n0);
+					if (n10 < n1000 && n0 <= n100)
+						break;
+					if (n10 == n1000 && n0 < n100)
+						n0 = n100 + 1;
+					putchar(n1000);
+					putchar(n100);
+					putchar(' ');
+					putchar(n10);
+					putchar(n0);
 
-						putchar(',');
-						putchar(' ');
-					}
+					if (n1000 == 57 && n100 == 56)
+						break;
+					putchar(',');
+					putchar(' ');
 				}
 			}
 		}
