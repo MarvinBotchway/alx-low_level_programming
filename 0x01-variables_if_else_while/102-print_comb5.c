@@ -16,7 +16,7 @@ int main(void)
 			{
 				for (n0 = 48; n0 <= 57; n0++)
 				{
-					if (n10 >= n1000 && n0 > n100)
+					if (n10 >= n1000 && n0 >= n100)
 					{
 						putchar(n1000);
 						putchar(n100);
@@ -26,7 +26,6 @@ int main(void)
 
 						putchar(',');
 						putchar(' ');
-					
 					}
 				}
 			}
