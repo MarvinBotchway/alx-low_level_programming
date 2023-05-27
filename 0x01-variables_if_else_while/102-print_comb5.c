@@ -18,18 +18,19 @@ int main(void)
 				{
 					if (n1000 == 48 && n100 == 48 && n10 == 48 && n0 == 48)
 						n0++;
-					if (n0 > n100 && n10 >= n1000)
+					if ((n0 >= n100 && n10 >= n1000) || (n0 < n100 && n10 > n1000))
 					{
 						putchar(n1000);
 						putchar(n100);
 						putchar(' ');
 						putchar(n10);
 						putchar(n0);
-
 						if (n1000 == 57 && n100 == 56 && n10 == 57 && n0 == 57)
 							break;
 						putchar(',');
 						putchar(' ');
+						if (n0 == 57 && n10 == 57)
+							break;
 					}
 				}
 			}
