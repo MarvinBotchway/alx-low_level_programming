@@ -8,16 +8,17 @@ void print_number(int n)
 {
 	int pv = 1;
 	int d = 0;
-	int nabs = n;
+	unsigned int nabs = n;
 
 	if (n < 0)
+	{
 		nabs = -1 * n;
+		_putchar(45);
+	}
 	while ((nabs / pv) >= 10)
 	{
 		pv = pv * 10;
 	}
-	if (n < 0)
-		_putchar('-');
 	while (pv >= 1)
 	{
 		d = (nabs - (nabs % pv)) / pv;
