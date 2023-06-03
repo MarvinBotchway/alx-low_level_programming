@@ -8,23 +8,20 @@ void print_number(int n)
 {
 	int pv = 1;
 	int d = 0;
-	unsigned int nabs = n;
 
 	if (n < 0)
 	{
-		nabs = -1 * n;
+		n = -1 * n;
 		_putchar(45);
 	}
-	while ((nabs / pv) >= 10)
-	{
+	while ((n / pv) >= 10)
 		pv = pv * 10;
-	}
 	while (pv >= 1)
 	{
-		d = (nabs - (nabs % pv)) / pv;
+		d = (n - (n % pv)) / pv;
 		_putchar('0' + d);
 
-		nabs = nabs % pv;
+		n = n % pv;
 		pv = pv / 10;
 	}
 }
