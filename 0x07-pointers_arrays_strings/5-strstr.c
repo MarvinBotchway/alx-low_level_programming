@@ -19,10 +19,10 @@ char *_strstr(char *haystack, char *needle)
 		{
 			if (needle[i] == haystack[j])
 			{
-				if (haystack[j - 1] == needle[0])
+				if (haystack[j] == needle[0])
 					str = haystack + j;
 				if (needle[i + 1] == '\0')
-					return (str - 1);
+					return (str);
 			}
 		}
 	}
