@@ -12,7 +12,7 @@ int _strlen(char *s)
 		return (0);
 }
 /**
- * _strcomp - Comapre characters in s.
+ * _strchk - Comapre characters in s.
  * @s: The string to be compared.
  * @i: Iterator starting from first char.
  * @j: Iterator from the last char of the string.
