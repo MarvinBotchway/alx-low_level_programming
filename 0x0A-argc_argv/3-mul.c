@@ -24,8 +24,11 @@ int main(int argc, char *argv[])
 			{
 				if (argv[j][k] < 48 || argv[j][k] > 57)
 				{
-					printf("Error\n");
-					return (1);
+					if (argv[j][0] != '-')
+					{
+						printf("Error\n");
+						return (1);
+					}
 				}
 			}
 		}
