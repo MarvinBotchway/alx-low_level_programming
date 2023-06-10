@@ -10,23 +10,32 @@
  */
 int main(int argc, char *argv[])
 {
-	int x = atoi(argv[1]);
-	int y = atoi(argv[2]);
+	int j, k;
+	int x = 0;
+	int y = 0;
 
-	if ((x == 0 && *argv[1] != '0') || (y == 0 && *argv[2] != '0'))
+	if (argc == 3)
 	{
-		printf("Error\n");
-		return (1);
+		x = atoi(argv[1]);
+		y = atoi(argv[2]);
+		for (j = 1; j < argc; j++)
+		{
+			for (k = 0; argv[j][k] != '\0'; k++)
+			{
+				if (argv[j][k] < 48 || argv[j][k] > 57)
+				{
+					printf("Error\n");
+					return (1);
+				}
+			}
+		}
 
-	}
-	if (argc != 3)
-	{
-		printf("Error\n");
-		return (1);
+		printf("%d\n", x * y);
 	}
 	else
 	{
-		printf("%d\n", x * y);
+		printf("Error\n");
+		return (1);
 	}
 	return (0);
 }
