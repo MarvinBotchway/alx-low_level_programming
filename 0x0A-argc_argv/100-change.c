@@ -57,8 +57,6 @@ int main(int argc, char *argv[])
 				num++;
 		}
 		printf("%d\n", num);
-		if (change < 0)
-			printf("\n");
 	}
 	else
 	{
