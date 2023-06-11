@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
 			if (change == coins[i])
 				num++;
 		}
-		printf("%d", num);
+		printf("%d\n", num);
 		if (change < 0)
 			printf("\n");
 	}
