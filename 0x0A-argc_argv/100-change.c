@@ -32,7 +32,6 @@ int main(int argc, char *argv[])
 	int i, num, coin, change;
 
 	num = coin = change = 0;
-	change = atoi(argv[1]);
 	if (argc == 2)
 	{
 		if (chk_argv(argv) == 1)
@@ -40,6 +39,8 @@ int main(int argc, char *argv[])
 			printf("Error\n");
 			return (1);
 		}
+
+		change = atoi(argv[1]);
 
 		for (i = 0; i < 5; i++)
 		{
