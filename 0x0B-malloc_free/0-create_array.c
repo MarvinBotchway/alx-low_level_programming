@@ -3,7 +3,7 @@
 #include <stdio.h>
 /**
  * create_array - Creates an array of chars,
- * and initializes it with a specific char. 
+ * and initializes it with a specific char.
  * @size: The size of the array.
  * @c: The character to initialize
  * Return: A pointer to the array created and NULL if size = 0
@@ -23,6 +23,6 @@ char *create_array(unsigned int size, char c)
 	}
 	for (i = 0; i < size; i++)
 		ptr[i] = c;
-	
+
 	return (ptr);
 }
