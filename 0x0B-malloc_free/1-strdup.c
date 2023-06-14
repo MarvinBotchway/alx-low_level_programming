@@ -17,7 +17,12 @@ char *_strdup(char *str)
 		return (NULL);
 	while (str[len] != '\0')
 		len++;
-	ptr = malloc(sizeof(char) * len);
+	ptr = malloc(sizeof(char) * (len + 1));
+	if (ptr == NULL)
+	{
+		printf("Failed to allocate memory!");
+		return (NULL);
+	}
 	for (i = 0; i <= len; i++)
 		ptr[i] = str[i];
 
