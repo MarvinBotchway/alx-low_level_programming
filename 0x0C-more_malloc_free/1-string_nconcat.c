@@ -23,7 +23,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		ls1++;
 	while (s2[ls2] != '\0')
 		ls2++;
-	if (n > ls2)
+	if (n >= ls2)
 		n = ls2 - 1;
 	ptr = malloc(ls1 + n);
 
