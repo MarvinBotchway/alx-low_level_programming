@@ -16,6 +16,24 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	unsigned int i, c;
 
 	i = c = 0;
+	if (ptr == NULL)
+	{
+		new_ptr = malloc(new_size);
+		if (new_ptr == NULL)
+		{
+			free(ptr);
+			printf("Unable to allocate memory.");
+			return (NULL);
+		}
+		return (new_ptr);
+	}
+	if (new_size == old_size)
+		return (ptr);
+	if (ptr != NULL && new_size == 0)
+	{
+		free(ptr);
+		return (NULL);
+	}
 	new_ptr = malloc(new_size);
 	if (new_ptr == NULL)
 	{
@@ -23,19 +41,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		printf("Unable to allocate memory.");
 		return (NULL);
 	}
-	if (ptr == NULL)
-		return (new_ptr);
-	if (ptr != NULL)
-	{
-		if (new_size == 0)
-		{
-			free(ptr);
-			return (NULL);
-		}
-	}
-	if (new_size == old_size)
-		return (ptr);
-
 	if (new_size > old_size)
 		c = old_size;
 	if (new_size < old_size)
@@ -43,9 +48,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 
 	old_ptr = (char *)ptr;
 	for (i = 0; i < c; i++)
-	{
 		new_ptr[i] = old_ptr[i];
-	}
 	free(ptr);
 	return (new_ptr);
 }
