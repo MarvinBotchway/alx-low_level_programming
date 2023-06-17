@@ -19,6 +19,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	new_ptr = malloc(new_size);
 	if (new_ptr == NULL)
 	{
+		free(ptr);
 		printf("Unable to allocate memory.");
 		return (NULL);
 	}
@@ -35,9 +36,9 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	if (new_size == old_size)
 		return (ptr);
 
-	else if (new_size > old_size)
+	if (new_size > old_size)
 		c = old_size;
-	else if (new_size < old_size)
+	if (new_size < old_size)
 		c = new_size;
 
 	old_ptr = (char *)ptr;
