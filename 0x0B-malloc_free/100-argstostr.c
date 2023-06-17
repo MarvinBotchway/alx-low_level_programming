@@ -24,7 +24,7 @@ char *argstostr(int ac, char **av)
 		s++;
 	}
 
-	ptr = malloc(sizeof(char) * (s + 1));
+	ptr = malloc(sizeof(char) * s);
 	if (ptr == NULL)
 	{
 		printf("Unable to allocate memory.");
