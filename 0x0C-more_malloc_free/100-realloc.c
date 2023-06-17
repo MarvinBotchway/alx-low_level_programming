@@ -22,6 +22,8 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		printf("Unable to allocate memory.");
 		return (NULL);
 	}
+	if (ptr == NULL)
+		return (new_ptr);
 	if (ptr != NULL)
 	{
 		if (new_size == 0)
