@@ -10,17 +10,39 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *newDog;
+	dog_t *newdog;
+	unsigned int i, nlen, olen;
 
-	newDog = malloc(sizeof(dog_t));
-	if (newDog == NULL)
+	i = nlen = olen = 0;
+
+	newdog = malloc(sizeof(dog_t *));
+	if (newdog == NULL)
 	{
 		printf("Unable to assign memory.");
+		free(newdog);
 		return (NULL);
 	}
-	newDog->name = name;
-	newDog->age = age;
-	newDog->owner = owner;
 
-	return (newDog);
+	while (name[nlen] != '\0')
+		nlen++;
+	newdog->name = malloc(sizeof(char) * (nlen + 1));
+	while (owner[olen] != '\0')
+		olen++;
+	newdog->owner = malloc(sizeof(char) * (olen + 1));
+
+	if (newdog->name == NULL || newdog->owner == NULL)
+	{
+		printf("Unable to assign memory");
+		free(newdog->name);
+		free(newdog->owner);
+		free(newdog);
+		return (NULL);
+	}
+	for (i = 0; i <= nlen; i++)
+		newdog->name[i] = name[i];
+	for (i = 0; i <= olen; i++)
+		newdog->owner[i] = owner[i];
+	newdog->age = age;
+
+	return (newdog);
 }
