@@ -11,6 +11,7 @@
 int main(int argc, char *argv[])
 {
 	char *c;
+	int a, b;
 
 	if (argc != 4)
 	{
@@ -18,21 +19,29 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
+	a = atoi(argv[1]);
 	c = argv[2];
+	b = atoi(argv[3]);
 
-	if (*c != '+' && *c != '-' && *c != '*' && *c != '/' && *c != '%')
+	if (
+	(*c != '+' &&
+	*c != '-' &&
+	*c != '*' &&
+	*c != '/' &&
+	*c != '%')
+	||
+	*(c + 1) != '\0')
 	{
 		printf("Error\n");
 		exit(99);
 	}
-	if ((*c == '/' && argv[3][0] == '0') || (*c == '%' && argv[3][0] == '0'))
+	if ((*c == '/' && b == 0) || (*c == '%' && b == 0))
 	{
 		printf("Error\n");
 		exit(100);
 	}
 
-	printf("%d\n", get_op_func(argv[2])(atoi(argv[1]), atoi(argv[3])));
-
+	printf("%d\n", get_op_func(c)(a, b));
 
 	return (0);
 }
