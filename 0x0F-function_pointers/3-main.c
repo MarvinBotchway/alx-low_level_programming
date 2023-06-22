@@ -20,18 +20,18 @@ int main(int argc, char *argv[])
 
 	c = argv[2];
 
-	if (*c != '+' || *c != '-' || *c != '*' || *c != '/' || *c != '%')
+	if (*c != '+' && *c != '-' && *c != '*' && *c != '/' && *c != '%')
 	{
 		printf("Error\n");
 		exit(99);
 	}
-	if ((*c == '/' || *c == '%') && (argv[3][0] == '0'))
+	if ((*c == '/' && argv[3][0] == '0') || (*c == '%' && argv[3][0] == '0'))
 	{
 		printf("Error\n");
 		exit(100);
 	}
 
-	printf("%d\n", get_op_func(c)(atoi(argv[1]), atoi(argv[3])));
+	printf("%d\n", get_op_func(argv[2])(atoi(argv[1]), atoi(argv[3])));
 
 
 	return (0);
