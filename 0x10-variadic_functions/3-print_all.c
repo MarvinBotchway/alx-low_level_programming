@@ -39,10 +39,13 @@ void print_all(const char * const format, ...)
 				printf(fts[i].str, va_arg(args, double));
 				break;
 			case 's':
-				str = fts[i].str;
-				if ((va_arg(args, char *)) == NULL)
-					str = "%p";
-				printf(str, va_arg(args, char *));
+				str = va_arg(args, char *);
+				if (str == NULL)
+				{
+					printf("(nil)");
+					break;
+				}
+				printf("%s", str);
 				break;
 		}
 		if (fts[i + 1].c != '\0')
