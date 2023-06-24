@@ -13,6 +13,7 @@ void print_all(const char * const format, ...)
 	va_list args;
 
 	int i = 0;
+	char *str;
 
 	format_t fts[] = {
 		{'c', "%c"},
@@ -26,12 +27,24 @@ void print_all(const char * const format, ...)
 
 	while (fts[i].c != '\0' || format[i] == fts[i].c)
 	{
-		if (fts[i].c == 'c' || fts[i].c == 'i')
-			printf(fts[i].str, va_arg(args, int));
-		if (fts[i].c == 'f')
-			printf(fts[i].str, va_arg(args, double));
-		if (fts[i].c == 's')
-			printf(fts[i].str, va_arg(args, char *));
+		switch (fts[i].c)
+		{
+			case 'c':
+				printf(fts[i].str, va_arg(args, int));
+				break;
+			case 'i':
+				printf(fts[i].str, va_arg(args, int));
+				break;
+			case 'f':
+				printf(fts[i].str, va_arg(args, double));
+				break;
+			case 's':
+				str = fts[i].str;
+				if ((va_arg(args, char *)) == NULL)
+					str = "%p";
+				printf(str, va_arg(args, char *));
+				break;
+		}
 		if (fts[i + 1].c != '\0')
 			printf(", ");
 
